@@ -1,0 +1,94 @@
+# To get started with security, check out the documentation:
+# http://symfony.com/doc/current/book/security.html
+security:
+    encoders:
+        FOS\UserBundle\Model\UserInterface: bcrypt
+
+    role_hierarchy:
+        ROLE_MOBINAUTE:   ROLE_MOBINAUTE
+        ROLE_ADMIN:       ROLE_USER
+        ROLE_SUPER_ADMIN: ROLE_ADMIN
+
+    providers:
+        fos_userbundle:
+            id: fos_user.user_provider.username_email
+
+    firewalls:
+       admin:
+         pattern: ^/Admin
+         form_login:
+            provider:   fos_userbundle
+            login_path: /Admin/Login
+            check_path: /Admin/login_check
+            use_forward: false
+            default_target_path:            /Admin/Principale
+            target_path_parameter:          _target_path
+            use_referer:                    false
+            always_use_default_target_path: true
+            csrf_token_generator: security.csrf.token_manager
+         logout:
+           path: /Admin/Logout
+           target: /Admin/Login
+         anonymous:    true
+
+       api_register:
+           pattern: ^/api/Register
+           anonymous: true
+           stateless: true
+
+       api_device:
+           pattern: ^/api/DeviceId
+           anonymous: true
+           stateless: true
+
+       api_reg:
+           pattern: ^/api/RegId
+           anonymous: true
+           stateless: true
+
+       api_verifUsename:
+          pattern: ^/api/VerifUserName
+          anonymous: true
+          stateless: true
+
+       api_verifEmail:
+          pattern: ^/api/VerifEmail
+          anonymous: true
+          stateless: true
+
+       api_login:
+          pattern:  ^/api/login
+          stateless: true
+          anonymous: true
+          form_login:
+              check_path:               /api/login_check
+              success_handler:          lexik_jwt_authentication.handler.authentication_success
+              failure_handler:          lexik_jwt_authentication.handler.authentication_failure
+              require_previous_session: false
+
+       api:
+         pattern:   ^/api
+         stateless: true
+         guard:
+           authenticators:
+           - lexik_jwt_authentication.jwt_token_authenticator
+
+    access_control:
+        - { path: ^/$, role: ROLE_USER }
+
+        - { path: ^/Admin/Login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/Admin/Register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+
+        - { path: ^/admin/, role: ROLE_ADMIN }
+        - { path: ^/Admin/Principale, role: ROLE_USER ,requires_channel: https}
+
+        - { path: ^/api/Register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/VerifUserName, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/VerifEmail, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/DeviceId, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/RegId, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api,       roles: IS_AUTHENTICATED_FULLY,requires_channel: https }
+
+

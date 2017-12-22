@@ -1,0 +1,49 @@
+{% extends "SigmaAdminBundle::Layout.html.twig" %}
+{% block PLUGIN %}
+
+{% endblock %}
+{% block content %}
+    <div class="col s12 m12 l6">
+        <div class="card-panel">
+            <h4 class="header2">Add Notification</h4>
+            <div class="row">
+                {{ form_start(form) }}
+                {{ form_errors(form) }}
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <div class="select-wrapper initialized">
+                                {{ form_widget(form.sujet) }}
+                                {{ form_errors(form.sujet) }}
+                            </div>
+                            <label for="first_name">Sujet</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="mdi-action-label prefix"></i>
+                            {{ form_widget(form.contenu) }}
+                            {{ form_errors(form.contenu) }}
+                            <label for="first_name">Contenu</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="mdi-action-label prefix"></i>
+                            {{ form_widget(form.point) }}
+                            {{ form_errors(form.point) }}
+                            <label for="first_name">Point</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            {{ form_widget(form.save) }}
+                        </div>
+                    </div>
+                </form>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

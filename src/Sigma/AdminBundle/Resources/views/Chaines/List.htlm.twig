@@ -1,0 +1,63 @@
+{% extends "SigmaAdminBundle::Layout.html.twig" %}
+{% block PLUGIN %}
+    <link href="{{ asset('Admin/js/plugins/prism/prism.css') }}" type="text/css" rel="stylesheet"
+          media="screen,projection">
+    <link href="{{ asset('Admin/js/plugins/perfect-scrollbar/perfect-scrollbar.css') }}" type="text/css"
+          rel="stylesheet" media="screen,projection">
+    <link href="{{ asset('Admin/js/plugins/data-tables/css/jquery.dataTables.min.css') }}" type="text/css"
+          rel="stylesheet" media="screen,projection">
+
+{% endblock %}
+{% block content %}
+    <div id="table-datatables">
+        <h4 class="header">List De TVs</h4>
+        <div class="row">
+            <div class="col s12 m10 l12">
+                <table id="data-table-simple" class="responsive-table display" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>Logo</th>
+                        <th>Libelle</th>
+                        <th>Description</th>
+                        <th>Site Web</th>
+                        <th>Option</th>
+                    </tr>
+                    </thead>
+
+                    <tfoot>
+                    <tr>
+                        <th>Logo</th>
+                        <th>Libelle</th>
+                        <th>Description</th>
+                        <th>Site Web</th>
+                        <th>Option</th>
+                    </tr>
+                    </tfoot>
+
+                    <tbody>
+                    {% for Chaine in Chaines %}
+                        <tr>
+                            <td><img height="50" width="50" src="{{ asset('uploads/LogoChaine/'~Chaine.Logo) }}"/></td>
+                            <td>{{ Chaine.libelle }}</td>
+                            <td>{{ Chaine.description }}</td>
+                            <td>{{ Chaine.web }}</td>
+                            <td>
+                                <a href="{{ path('sigma_admin_update_Chaines', { 'id': Chaine.id }) }}" class="waves-effect waves-light btn-flat "><i class="mdi-editor-border-color right"></i></a>
+                                <a href="{{ path('sigma_admin_delete_Chaines', { 'id': Chaine.id }) }}" class="waves-effect waves-light btn-flat "><i class="mdi-action-delete left"></i></a>
+                                <a href="{{ path('sigma_admin_Emmission', { 'id': Chaine.id }) }}" class="waves-effect waves-light btn-flat "><i class="mdi-action-system-update-tv left"></i></a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- Floating Action Button -->
+    <div class="fixed-action-btn" style="bottom: 50px; right: 19px;">
+        <a href="{{ path('sigma_admin_Add_Chaines') }}" class="btn-floating blue btn-large">
+            <i class="mdi-content-add"></i>
+        </a>
+    </div>
+    <!-- Floating Action Button -->
+{% endblock %}

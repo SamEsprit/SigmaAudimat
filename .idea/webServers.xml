@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="775de7d0-e76e-436a-88d3-7d16c9fe3c6a" name="Sigma" url="http://audimat.theleadercenter.tn">
+        <fileTransfer host="ftp.theleadercenter.tn" port="21" rootFolder="/audimat.theleadercenter.tn">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

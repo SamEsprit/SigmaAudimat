@@ -1,0 +1,69 @@
+sigma_api:
+    resource: "@SigmaApiBundle/Resources/config/routing.yml"
+    prefix:   /api
+
+sigma_admin:
+    resource: "@SigmaAdminBundle/Resources/config/routing.yml"
+    prefix:   /Admin
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+fos_user_admin_login:
+    defaults: { _controller: FOSUserBundle:Security:login }
+    path: /Admin/Login
+
+fos_user_admin_login_check:
+    defaults: { _controller: SigmaAdminBundle:Admin:check }
+    path: /Admin/login_check
+fos_user_admin_logout:
+    defaults: { _controller: SigmaAdminBundle:Admin:logout }
+    path: /Admin/Logout
+
+fos_user_admin_register:
+    defaults: { _controller: SigmaAdminBundle:Admin:register }
+    path: /Admin/Register
+
+fos_user_admin_registration_register:
+    defaults: { _controller: SigmaAdminBundle:Admin:register }
+    path: /Admin/Register
+
+api_login_check:
+    path: /api/login_check
+
+fos_user_api_login:
+    defaults: { _controller: FOSUserBundle:Security:login }
+    path: /api/login
+
+fos_user_api_logout:
+    defaults: { _controller: FOSUserBundle:Security:logout }
+    path: /api/Logout
+
+fos_user_api_register:
+    defaults: { _controller: SigmaApiBundle:Mobinaute:register }
+    path: /api/Register
+    methods: POST
+sigma_api_DeviceId:
+    path:     /api/DeviceId
+    defaults: { _controller: SigmaApiBundle:Mobinaute:DeviceId }
+    methods: POST
+sigma_api_RegId:
+    path:     /api/RegId
+    defaults: { _controller: SigmaApiBundle:Mobinaute:RegId }
+    methods: POST
+
+sigma_api_verifUserName:
+    path:     /api/VerifUserName
+    defaults: { _controller: SigmaApiBundle:Mobinaute:VerifUserName }
+    methods: POST
+
+sigma_api_verifEmail:
+    path:     /api/VerifEmail
+    defaults: { _controller: SigmaApiBundle:Mobinaute:VerifEmail }
+    methods: POST
+root:
+    path: /
+    defaults:
+        _controller: AppBundle:Default:index
+        path: /Admin/Principale
+        permanent: true

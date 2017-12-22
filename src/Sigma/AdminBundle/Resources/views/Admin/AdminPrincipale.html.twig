@@ -1,0 +1,71 @@
+{% extends "SigmaAdminBundle::Layout.html.twig" %}
+{% block content %}
+    <div id="card-stats">
+        <div class="row">
+            <div class="col s12 m6 l3">
+                <a href="{{ path('sigma_admin_Chaines') }}">
+                    <div class="card">
+                        <div class="card-content orange white-text">
+                            <br><br>
+                            <p class="card-stats-title"><i class="fa fa-television"></i>Gestion TVs </p>
+                            <br><br>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col s12 m6 l3">
+                <a href="{{ path('sigma_admin_Radios') }}">
+                    <div class="card">
+                        <div class="card-content red white-text">
+                            <br><br>
+                            <p class="card-stats-title"><i class="material-icons mdi-av-radio"></i>Gestion Radios </p>
+                            <br><br>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col s12 m6 l3">
+                <a href="{{ path('sigma_admin_list_mobinaute') }}">
+                    <div class="card">
+                        <div class="card-content green white-text">
+                            <br><br>
+                            <p class="card-stats-title"><i class="mdi-action-account-circle"></i>Gestion Mobinautes</p>
+                            <br><br>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col s12 m6 l3">
+                <a href="{{ path('sigma_admin_Notifications') }}">
+                    <div class="card">
+                        <div class="card-content blue white-text">
+                            <br><br>
+                            <p class="card-stats-title"><i class="mdi-social-notifications"></i>Gestion Notifications
+                            </p>
+                            <br><br>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col s12 m6 l3">
+                <div class="card">
+                    <div class="card-content green white-text">
+                        <br><br>
+                        <p class="card-stats-title"><i class="fa fa-bar-chart"></i>Statistique Emission Tv
+                        </p>
+                        <br><br>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m6 l3">
+                <div class="card">
+                    <div class="card-content purple white-text">
+                        <br><br>
+                        <p class="card-stats-title"><i class="fa fa-bar-chart"></i>Statistique Emission Radios </p>
+                        <br><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

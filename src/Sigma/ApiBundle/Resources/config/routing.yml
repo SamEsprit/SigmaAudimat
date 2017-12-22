@@ -1,0 +1,71 @@
+sigma_api_Tv:
+    path:     /Tv
+    defaults: { _controller: SigmaApiBundle:Tv:ListTv }
+    methods: GET
+sigma_api_Radio:
+    path:     /Radio
+    defaults: { _controller: SigmaApiBundle:Radio:ListRadio }
+    methods: GET
+sigma_api_EmissionTv:
+    path:     /EmissionTv
+    defaults: { _controller: SigmaApiBundle:Emission:ListEmissionTv }
+    methods: POST
+sigma_api_EmissionRadio:
+    path:     /EmissionRadio
+    defaults: { _controller: SigmaApiBundle:Emission:ListEmissionRadio }
+    methods: POST
+sigma_api_Emissions:
+    path:     /Emissions/{id}
+    defaults: { _controller: SigmaApiBundle:Emission:ListEmissionByChaine }
+    methods: POST
+
+sigma_api_vote:
+    path:     /Vote
+    defaults: { _controller: SigmaApiBundle:Vote:Vote }
+    methods: POST
+
+sigma_api_Vu:
+    path:     /Vu
+    defaults: { _controller: SigmaApiBundle:Notification:Vu }
+    methods: POST
+sigma_api_NotVu:
+    path:     /NotVu
+    defaults: { _controller: SigmaApiBundle:Notification:NotVu }
+    methods: POST
+
+
+sigma_api_repondre:
+    path:     /Repondre
+    defaults: { _controller: SigmaApiBundle:Notification:Repondre }
+    methods: POST
+sigma_api_NotificationList:
+    path:     /ListNotification
+    defaults: { _controller: SigmaApiBundle:Notification:ListNotification }
+    methods: POST
+sigma_api_list_response:
+    path:     /EmissionsNotification
+    defaults: { _controller: SigmaApiBundle:Notification:ResponseNotification }
+    methods: POST
+
+sigma_api_notification:
+    path:     /notification
+    defaults: { _controller: SigmaApiBundle:Notification:notification }
+    methods: POST
+
+sigma_api_notification_statistique:
+    path:     /NotifictionStatistique
+    defaults: { _controller: SigmaApiBundle:Statistique:NotifictionStatistique }
+    methods: POST
+
+sigma_api_Profile:
+    path:     /Profile
+    defaults: { _controller: SigmaApiBundle:Mobinaute:Profile }
+    methods: POST
+sigma_api_ProfileInformation:
+    path:     /ProfileInformation
+    defaults: { _controller: SigmaApiBundle:Mobinaute:ProfileInformation }
+    methods: POST
+sigma_api_UpdateProfileInformation:
+    path:     /UpdateProfileInformation
+    defaults: { _controller: SigmaApiBundle:Mobinaute:UpdateProfileInformation }
+    methods: POST

@@ -1,0 +1,53 @@
+{% extends "SigmaAdminBundle::Layout.html.twig" %}
+{% block PLUGIN %}
+
+{% endblock %}
+{% block content %}
+    <div class="col s12 m12 l6">
+        <div class="card-panel">
+            <h4 class="header2">Update Tv</h4>
+            <div class="row">
+                {{ form_start(form) }}
+                {{ form_errors(form) }}
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="mdi-action-label prefix"></i>
+                            {{ form_widget(form.libelle) }}
+                            {{ form_errors(form.libelle) }}
+                            <label for="first_name">Libelle</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="mdi-communication-comment prefix"></i>
+                            {{ form_widget(form.description) }}
+                            {{ form_errors(form.description) }}
+                            <label for="description">Description</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="mdi-communication-business prefix"></i>
+                            {{ form_widget(form.web) }}
+                            {{ form_errors(form.web) }}
+                            <label for="description">Web Site</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            {{ form_widget(form.logo) }}
+                            {{ form_errors(form.logo) }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            {{ form_widget(form.update) }}
+                        </div>
+                    </div>
+                </form>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

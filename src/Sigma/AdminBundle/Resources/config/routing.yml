@@ -1,0 +1,86 @@
+sigma_admin_homepage:
+    path:     /
+    defaults: { _controller: SigmaAdminBundle:Default:index }
+
+sigma_admin_security_register:
+    path:     /admin/register
+    defaults: { _controller: SigmaAdminBundle:Admin:register }
+
+#Admin Principale
+sigma_admin_Principale:
+    path:     /Principale
+    defaults: { _controller: SigmaAdminBundle:Admin:Principale }
+#Tv
+sigma_admin_Chaines:
+    path:     /Tv
+    defaults: { _controller: SigmaAdminBundle:Chaines:list }
+sigma_admin_Add_Chaines:
+    path:     /AddTv
+    defaults: { _controller: SigmaAdminBundle:Chaines:add }
+sigma_admin_update_Chaines:
+    path:     /UpdateTv/{id}
+    defaults: { _controller: SigmaAdminBundle:Chaines:update }
+sigma_admin_delete_Chaines:
+    path:     /DeleteTv/{id}
+    defaults: { _controller: SigmaAdminBundle:Chaines:delete }
+#Radio
+sigma_admin_Radios:
+    path:     /Radios
+    defaults: { _controller: SigmaAdminBundle:Radio:list }
+sigma_admin_Add_Radios:
+    path:     /AddRadio
+    defaults: { _controller: SigmaAdminBundle:Radio:add }
+sigma_admin_update_Radios:
+    path:     /UpdateRadio/{id}
+    defaults: { _controller: SigmaAdminBundle:Radio:update }
+sigma_admin_delete_Radios:
+    path:     /DeleteRadio/{id}
+    defaults: { _controller: SigmaAdminBundle:Radio:delete }
+#Emission
+sigma_admin_Emmission:
+    path:     /EmissionsTv/{id}
+    defaults: { _controller: SigmaAdminBundle:Emission:list }
+sigma_admin_Add_Emmission:
+    path:     /AddEmissionTv/{id}
+    defaults: { _controller: SigmaAdminBundle:Emission:add }
+sigma_admin_update_Emmission:
+    path:     /UpdateEmissionTv/{id}/{idE}
+    defaults: { _controller: SigmaAdminBundle:Emission:update }
+sigma_admin_delete_Emmission:
+    path:     /DeleteEmissionTv/{id}/{idE}
+    defaults: { _controller: SigmaAdminBundle:Emission:delete }
+
+
+#Notifications
+sigma_admin_Notifications:
+     path:     /Notifications
+     defaults: { _controller: SigmaAdminBundle:Notification:list }
+sigma_admin_Add_Notification:
+     path:     /AddNotification
+     defaults: { _controller: SigmaAdminBundle:Notification:add }
+sigma_admin_update_Notification:
+     path:     /UpdateNotification/{id}
+     defaults: { _controller: SigmaAdminBundle:Notification:update }
+sigma_admin_delete_Notification:
+     path:     /DeleteNotification/{id}
+     defaults: { _controller: SigmaAdminBundle:Notification:delete }
+#Mobinaute
+sigma_admin_list_mobinaute:
+    path:     /Mobinaute
+    defaults: { _controller: SigmaAdminBundle:Mobinaute:list }
+sigma_admin_enable_mobinaute:
+    path:     /EnableMobinaute/{id}
+    defaults: { _controller: SigmaAdminBundle:Mobinaute:enable }
+sigma_admin_disable_mobinaute:
+    path:     /disableMobinaute/{id}
+    defaults: { _controller: SigmaAdminBundle:Mobinaute:disable }
+#Statistique
+sigma_admin_statistique_by_tv:
+    path:     /StatistiqueEmissionTvByVote
+    defaults: { _controller: SigmaAdminBundle:Statistique:StatistiqueEmissionTvByVote }
+sigma_admin_statistique_by_radio:
+    path:     /StatistiqueEmissionRadioByVote
+    defaults: { _controller: SigmaAdminBundle:Statistique:StatistiqueEmissionRadioByVote }
+sigma_admin_statistique_notification:
+    path:     /NotifictionStatistique/{id}
+    defaults: { _controller: SigmaAdminBundle:Statistique:NotifictionStatistique }

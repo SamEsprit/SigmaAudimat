@@ -1,0 +1,63 @@
+{% extends "SigmaAdminBundle::Layout.html.twig" %}
+{% block PLUGIN %}
+    <link href="{{ asset('Admin/js/plugins/prism/prism.css') }}" type="text/css" rel="stylesheet"
+          media="screen,projection">
+    <link href="{{ asset('Admin/js/plugins/perfect-scrollbar/perfect-scrollbar.css') }}" type="text/css"
+          rel="stylesheet" media="screen,projection">
+    <link href="{{ asset('Admin/js/plugins/data-tables/css/jquery.dataTables.min.css') }}" type="text/css"
+          rel="stylesheet" media="screen,projection">
+
+{% endblock %}
+{% block content %}
+    <div id="table-datatables">
+        <h4 class="header">List Des Questions</h4>
+        <div class="row">
+            <div class="col s12 m10 l12">
+                <table id="data-table-simple" class="responsive-table display" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>Sujet</th>
+                        <th>Date</th>
+                        <th>Question</th>
+                        <th>Point</th>
+                        <th>Option</th>
+                    </tr>
+                    </thead>
+
+                    <tfoot>
+                    <tr>
+                        <th>Sujet</th>
+                        <th>Date</th>
+                        <th>Question</th>
+                        <th>Point</th>
+                        <th>Option</th>
+                    </tr>
+                    </tfoot>
+
+                    <tbody>
+                    {% for Notification in Notifications %}
+                        <tr>
+                            <td>{{ Notification.sujet }}</td>
+                            <td>{{ Notification.dateCreate | date("m/d/Y H:i") }}</td>
+                            <td>{{ Notification.contenu }}</td>
+                            <td>{{ Notification.point }}</td>
+                            <td>
+                                <a href="{{ path('sigma_admin_update_Notification', { 'id': Notification.id }) }}" class="waves-effect waves-light btn-flat "><i class="mdi-editor-border-color right"></i></a>
+                                <a href="{{ path('sigma_admin_delete_Notification', { 'id': Notification.id }) }}" class="waves-effect waves-light btn-flat "><i class="mdi-action-delete center"></i></a>
+                                <a href="{{ path('sigma_admin_statistique_notification', { 'id': Notification.id }) }}" class="waves-effect waves-light btn-flat "><i class="fa fa-bar-chart left"></i></a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- Floating Action Button -->
+    <div class="fixed-action-btn" style="bottom: 50px; right: 19px;">
+        <a href="{{ path('sigma_admin_Add_Notification') }}" class="btn-floating blue btn-large">
+            <i class="mdi-content-add"></i>
+        </a>
+    </div>
+    <!-- Floating Action Button -->
+{% endblock %}
